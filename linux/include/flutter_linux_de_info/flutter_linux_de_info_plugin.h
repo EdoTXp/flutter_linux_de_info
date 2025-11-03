@@ -11,12 +11,7 @@ G_BEGIN_DECLS
 #define FLUTTER_PLUGIN_EXPORT
 #endif
 
-typedef struct _FlutterLinuxDeInfoPlugin FlutterLinuxDeInfoPlugin;
-typedef struct {
-  GObjectClass parent_class;
-} FlutterLinuxDeInfoPluginClass;
-
-FLUTTER_PLUGIN_EXPORT GType flutter_linux_de_info_plugin_get_type();
+G_DECLARE_FINAL_TYPE(FlutterLinuxDEInfoPlugin, flutter_linux_de_info_plugin, FLUTTER_LINUX_DE_INFO, PLUGIN, GObject)
 
 FLUTTER_PLUGIN_EXPORT void flutter_linux_de_info_plugin_register_with_registrar(
     FlPluginRegistrar* registrar);

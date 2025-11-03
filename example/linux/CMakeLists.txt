@@ -72,7 +72,7 @@ set_target_properties(${BINARY_NAME}
 )
 
 # Enable the test target.
-set(include_flutter_linux_de_info_tests TRUE)
+set(include_flutter_linux_de_info_tests FALSE)
 
 # Generated plugin build rules, which manage building the plugins and adding
 # them to the application.

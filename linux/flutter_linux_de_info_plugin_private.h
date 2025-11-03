@@ -7,4 +7,4 @@
 // in the unit-testable API.
 
 // Handles the getPlatformVersion method call.
-FlMethodResponse *get_platform_version();
+FlMethodResponse *getDesktopEnvironment();

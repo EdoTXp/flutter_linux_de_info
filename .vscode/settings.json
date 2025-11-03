@@ -55,6 +55,10 @@
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
     "*.cpp": "cpp",
-    "chrono": "cpp"
-  }
+    "chrono": "cpp",
+    "cstdlib": "cpp",
+    "random": "cpp",
+    "string": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "disabled"
 }
