@@ -7,10 +7,11 @@ class FlutterLinuxDeInfo {
 
   /// Returns the current Linux Desktop Environment as a [String].
   /// Possible return values include 'GNOME', 'KDE', 'XFCE', etc.
-  static Future<String> getDesktopEnvironment() async {
+  Future<String> getDesktopEnvironment() async {
     if (!Platform.isLinux) {
-      throw UnsupportedError(
-        'getDesktopEnvironment is only supported on Linux platforms.',
+      throw PlatformException(
+        code: 'UNSUPPORTED_PLATFORM',
+        message: 'getDesktopEnvironment is only supported on Linux platforms.',
       );
     }
 

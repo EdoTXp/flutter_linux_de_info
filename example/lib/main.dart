@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _loadDE() async {
-    final env = await FlutterLinuxDeInfo.getDesktopEnvironment();
+    final env = await FlutterLinuxDeInfo().getDesktopEnvironment();
     setState(() => _de = env);
   }
 

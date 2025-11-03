@@ -1,16 +1,31 @@
-# flutter_linux_de_info_example
+# Example for flutter_linux_de_info
 
-Demonstrates how to use the flutter_linux_de_info plugin.
+This project demonstrates the usage of the `flutter_linux_de_info` plugin. It showcases how to retrieve and display the current Linux Desktop Environment using the plugin's `getDesktopEnvironment()` method.
 
-## Getting Started
+## How to Run
 
-This project is a starting point for a Flutter application.
+To run this example application:
 
-A few resources to get you started if this is your first Flutter project:
+1. Navigate to the `example/` directory in your terminal:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+   ```bash
+   cd example/
+   ```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+2. Get the project dependencies:
+
+   ```bash
+   flutter pub get
+   ```
+
+3. Run the application on your Linux desktop:
+
+   ```bash
+   flutter run -d linux
+   ```
+
+The application will display the detected Desktop Environment (e.g., GNOME, KDE, XFCE) or "Unknown" if it cannot be determined.
+
+## Key Files
+
+- `lib/main.dart`: The main entry point of the example application, demonstrating the plugin's usage.
