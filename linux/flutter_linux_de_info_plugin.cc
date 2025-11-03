@@ -4,11 +4,12 @@
  * This file uses the GObject type system for its structure and lifecycle,
  * which is the standard for GTK and Flutter Linux plugins.
  */
-#include "include/flutter_linux_de_info/flutter_linux_de_info_plugin.h"
+#include <cstdlib>
+#include <string>
 #include <flutter_linux/flutter_linux.h>
 #include <gtk/gtk.h>
-#include <string>
-#include <cstdlib>
+
+#include "include/flutter_linux_de_info/flutter_linux_de_info_plugin.h"
 
 #define FLUTTER_LINUX_DE_INFO_PLUGIN(obj) \
   (G_TYPE_CHECK_INSTANCE_CAST((obj), flutter_linux_de_info_plugin_get_type(), FlutterLinuxDEInfoPlugin))
@@ -79,7 +80,8 @@ static void flutter_linux_de_info_plugin_dispose(GObject *object)
  * This function is called once to set up the class, including connecting
  * the dispose function.
  */
-static void flutter_linux_de_info_plugin_class_init(FlutterLinuxDEInfoPluginClass *klass)
+static void flutter_linux_de_info_plugin_class_init(
+    FlutterLinuxDEInfoPluginClass *klass)
 {
   G_OBJECT_CLASS(klass)->dispose = flutter_linux_de_info_plugin_dispose;
 }
@@ -90,7 +92,8 @@ static void flutter_linux_de_info_plugin_class_init(FlutterLinuxDEInfoPluginClas
  */
 static void flutter_linux_de_info_plugin_init(FlutterLinuxDEInfoPlugin *self) {}
 
-FLUTTER_PLUGIN_EXPORT void flutter_linux_de_info_plugin_register_with_registrar(FlPluginRegistrar *registrar)
+FLUTTER_PLUGIN_EXPORT void flutter_linux_de_info_plugin_register_with_registrar(
+    FlPluginRegistrar *registrar)
 {
   FlStandardMethodCodec *codec = fl_standard_method_codec_new();
   FlMethodChannel *channel = fl_method_channel_new(
@@ -105,11 +108,14 @@ FLUTTER_PLUGIN_EXPORT void flutter_linux_de_info_plugin_register_with_registrar(
   // A lambda function is used here to capture the plugin instance.
   // g_object_ref and g_object_unref are used to manage the lifecycle of the
   // plugin object, ensuring it stays alive as long as the channel exists.
-  fl_method_channel_set_method_call_handler(channel, [](FlMethodChannel *channel, FlMethodCall *call, gpointer user_data)
-                                            { flutter_linux_de_info_plugin_handle_method_call(
-                                                  FLUTTER_LINUX_DE_INFO_PLUGIN(user_data), call); },
-
-                                            g_object_ref(plugin), g_object_unref);
+  fl_method_channel_set_method_call_handler(
+      channel,
+      [](FlMethodChannel *channel, FlMethodCall *call, gpointer user_data)
+      {
+        flutter_linux_de_info_plugin_handle_method_call(
+            FLUTTER_LINUX_DE_INFO_PLUGIN(user_data), call);
+      },
+      g_object_ref(plugin), g_object_unref);
 
   // The plugin object is no longer needed in this scope, so unref it.
   // The method channel now holds a reference, so the object won't be destroyed.
